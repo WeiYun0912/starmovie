@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Pagination from "@material-ui/lab/Pagination";
 import Movie from "./Movie";
@@ -13,6 +13,10 @@ const theme = createMuiTheme({
   },
 });
 const MovieList = () => {
+  const [page, setPage] = useState(1);
+  const changeHandler = (e, v) => {
+    setPage(v);
+  };
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -21,7 +25,7 @@ const MovieList = () => {
         alignItems="center"
         flexWrap="wrap"
       >
-        <Movie />
+        <Movie page={page} />
       </Box>
       <Box
         display="flex"
@@ -29,7 +33,7 @@ const MovieList = () => {
         justifyContent="center"
         margin="10px"
       >
-        <Pagination count={10} color="primary" />
+        <Pagination count={10} color="primary" onChange={changeHandler} />
       </Box>
     </ThemeProvider>
   );

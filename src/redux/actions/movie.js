@@ -1,10 +1,10 @@
 import { GET_MOVIE, ERROR_MOVIE, GET_MOVIE_DETAIL } from "./types";
 import axios from "axios";
 import { API_KEY } from "../../config/index";
-export const getMoives = () => async (dispatch) => {
+export const getMoives = (page) => async (dispatch) => {
   try {
     const req = await axios.get(
-      `discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+      `discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
     );
     dispatch({
       type: GET_MOVIE,

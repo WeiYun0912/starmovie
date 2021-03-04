@@ -13,6 +13,7 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import { Link } from "react-router-dom";
+import loadingImage from "../../assets/images/loading.gif";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -23,12 +24,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Movie = ({ movielist, getMoives }) => {
+const Movie = ({ movielist, getMoives, page }) => {
   const classes = useStyles();
-
+  console.log(page);
   useEffect(() => {
-    getMoives();
-  }, [getMoives]);
+    getMoives(page);
+  }, [getMoives, page]);
 
   return (
     <>
@@ -37,7 +38,7 @@ const Movie = ({ movielist, getMoives }) => {
         : movielist.movielist.results.map((movie) => (
             <Card key={movie.id} className={classes.root}>
               <Link
-                to={"/starmovie/detail/" + movie.id}
+                to={"starmovie/detail/" + movie.id}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <CardActionArea>
