@@ -50,11 +50,14 @@ const HeaderBar = () => {
             <Typography variant="h6" className={classes.title}>
               STARMOVIE
             </Typography>
-            <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
+            <Link
+              to="/starmovie"
+              style={{ color: "#fff", textDecoration: "none" }}
+            >
               <Button color="inherit">HOME</Button>
             </Link>
             <Link
-              to="/gallary"
+              to="/starmovie/gallary"
               style={{ color: "#fff", textDecoration: "none" }}
             >
               <Button color="inherit">Gallery</Button>

@@ -1,7 +1,7 @@
 import HeaderBar from "./component/layout/HeaderBar";
 import Banner from "./component/layout/Banner";
 import MovieList from "./component/layout/MovieList";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Provider } from "react-redux";
@@ -14,11 +14,12 @@ function App() {
     <Provider store={store}>
       <Router>
         <HeaderBar />
-        <Route path={"/"} exact component={Banner} />
+        <Route path={"/starmovie"} exact component={Banner} />
         <Container>
-          <Route path={"/"} exact component={MovieList} />
-          <Route path={"/detail/:id"} component={MovieDetail} />
+          <Route path={"/starmovie"} exact component={MovieList} />
+          <Route path={"/starmovie/detail/:id"} component={MovieDetail} />
         </Container>
+        <Redirect from="/" to="/starmovie" />
       </Router>
     </Provider>
   );

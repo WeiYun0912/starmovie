@@ -37,7 +37,7 @@ const Movie = ({ movielist, getMoives }) => {
         : movielist.movielist.results.map((movie) => (
             <Card key={movie.id} className={classes.root}>
               <Link
-                to={"/detail/" + movie.id}
+                to={"/starmovie/detail/" + movie.id}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <CardActionArea>
