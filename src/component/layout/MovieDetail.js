@@ -7,7 +7,8 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import GetAppIcon from "@material-ui/icons/GetApp";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     width: "100%",
@@ -50,7 +51,7 @@ const MovieDetail = ({
         <div
           className={classes.wrapper}
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url(https://image.tmdb.org/t/p/w780${movieDetail?.movieDetail?.backdrop_path})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${movieDetail?.movieDetail?.backdrop_path})`,
           }}
         >
           <Box
@@ -106,13 +107,13 @@ const MovieDetail = ({
               </Button>
             </Box>
             <Box>
-              <img
+              <LazyLoadImage
                 src={
                   "https://image.tmdb.org/t/p/w400" +
                   movieDetail?.movieDetail?.poster_path
                 }
                 className={classes.poster}
-                alt=""
+                placeholderSrc="https://via.placeholder.com/500/fafafa/000000?text=Loading"
               />
             </Box>
           </Box>

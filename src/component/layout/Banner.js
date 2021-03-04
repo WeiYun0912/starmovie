@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     width: "100%",
     height: "80vh",
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url(https://image.tmdb.org/t/p/original/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.jpg)`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.jpg)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",

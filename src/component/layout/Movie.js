@@ -13,7 +13,9 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import { Link } from "react-router-dom";
-import loadingImage from "../../assets/images/loading.gif";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import dummy from "../../assets/images/dummy1.gif";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -21,6 +23,11 @@ const useStyles = makeStyles({
   },
   media: {
     height: "50vh",
+  },
+  poster: {
+    // minWidth: "400px",
+    height: "500px",
+    width: "350px",
   },
 });
 
@@ -35,20 +42,21 @@ const Movie = ({ movielist, getMoives, page }) => {
     <>
       {movielist.loading
         ? "Loading..."
-        : movielist.movielist.results.map((movie) => (
+        : movielist?.movielist?.results?.map((movie) => (
             <Card key={movie.id} className={classes.root}>
               <Link
                 to={"starmovie/detail/" + movie.id}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <CardActionArea>
-                  <CardMedia
-                    className={classes.media}
-                    image={
-                      "https://image.tmdb.org/t/p/original/" + movie.poster_path
-                    }
-                    title="Contemplative Reptile"
+                  <LazyLoadImage
+                    src={"https://image.tmdb.org/t/p/w400" + movie.poster_path}
+                    height="500px"
+                    width="350px"
+                    // effect="blur"
+                    placeholderSrc="https://via.placeholder.com/500/fafafa/000000?text=Loading"
                   />
+
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       {movie.title}
