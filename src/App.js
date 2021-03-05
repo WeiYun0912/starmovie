@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <Redirect from="/" exact to="/starmovie" />
           <Route path={"/starmovie"} exact component={Banner} />
-          <Route path={"/starmovie/detail/:id"} component={MovieDetail} />
+          <Route path={"/detail/:id"} component={MovieDetail} />
         </Switch>
         <Container>
           <Route path={"/starmovie"} exact component={MovieList} />

@@ -44,7 +44,7 @@ const Movie = ({ movie, getMoives, page }) => {
         : movie?.movielist?.results?.map((movie) => (
             <Card key={movie.id} className={classes.root}>
               <Link
-                to={"starmovie/detail/" + movie.id}
+                to={"/detail/" + movie.id}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <CardActionArea>
