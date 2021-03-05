@@ -3,7 +3,6 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { getMoives } from "../../redux/actions/movie";
@@ -14,7 +13,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import dummy from "../../assets/images/dummy1.gif";
+
 import "react-lazy-load-image-component/src/effects/blur.css";
 const useStyles = makeStyles({
   root: {
@@ -31,7 +30,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Movie = ({ movielist, getMoives, page }) => {
+const Movie = ({ movie, getMoives, page }) => {
   const classes = useStyles();
   console.log(page);
   useEffect(() => {
@@ -40,9 +39,9 @@ const Movie = ({ movielist, getMoives, page }) => {
 
   return (
     <>
-      {movielist.loading
+      {movie.loading
         ? "Loading..."
-        : movielist?.movielist?.results?.map((movie) => (
+        : movie?.movielist?.results?.map((movie) => (
             <Card key={movie.id} className={classes.root}>
               <Link
                 to={"starmovie/detail/" + movie.id}
@@ -109,7 +108,7 @@ const Movie = ({ movielist, getMoives, page }) => {
 };
 
 const mapStateToProps = (state) => ({
-  movielist: state.movie,
+  movie: state.movie,
 });
 
 export default connect(mapStateToProps, { getMoives })(Movie);

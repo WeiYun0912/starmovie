@@ -1,4 +1,8 @@
-import { GET_MOVIE, GET_MOVIE_DETAIL } from "../actions/types";
+import {
+  GET_MOVIE,
+  GET_MOVIE_COMMENTS,
+  GET_MOVIE_DETAIL,
+} from "../actions/types";
 const initState = {
   movielist: [],
   loading: true,
@@ -17,6 +21,12 @@ const movie = (state = initState, action) => {
       return {
         ...state,
         movieDetail: payload,
+        loading: false,
+      };
+    case GET_MOVIE_COMMENTS:
+      return {
+        ...state,
+        movieComments: payload,
         loading: false,
       };
     default:

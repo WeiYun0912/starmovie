@@ -1,4 +1,9 @@
-import { GET_MOVIE, ERROR_MOVIE, GET_MOVIE_DETAIL } from "./types";
+import {
+  GET_MOVIE,
+  GET_MOVIE_DETAIL,
+  GET_MOVIE_COMMENTS,
+  ERROR_MOVIE,
+} from "./types";
 import axios from "axios";
 import { API_KEY } from "../../config/index";
 export const getMoives = (page) => async (dispatch) => {
@@ -25,6 +30,23 @@ export const getMovieDetail = (id) => async (dispatch) => {
     );
     dispatch({
       type: GET_MOVIE_DETAIL,
+      payload: req.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: ERROR_MOVIE,
+      payload: console.log(e),
+    });
+  }
+};
+
+export const getMovieComments = (id) => async (dispatch) => {
+  try {
+    const req = await axios.get(
+      `movie/${id}/reviews?api_key=a7a877f8755c80969895d0d4749349af&language=en-US&page=1`
+    );
+    dispatch({
+      type: GET_MOVIE_COMMENTS,
       payload: req.data,
     });
   } catch (e) {
