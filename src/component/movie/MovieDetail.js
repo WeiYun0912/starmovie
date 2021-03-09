@@ -121,14 +121,7 @@ const MovieDetail = ({
           budget={movie?.movieDetail?.budget}
         />
       </Box>
-      <Box
-        width="80%"
-        margin="0 auto"
-        boxShadow="0px 0px 24px 2px rgba(94,94,94,1);"
-        overflow="auto hidden"
-        whiteSpace="nowrap"
-        padding="10px 0"
-      >
+      <Box>
         <Cast id={id} />
       </Box>
       <Box width="80%" margin="0 auto">

@@ -64,7 +64,7 @@ const Comments = ({ id, movieComments, getMovieComments }) => {
                     aria-label="recipe"
                     className={classes.avatar}
                     src={
-                      "https://image.tmdb.org/t/p/original/" +
+                      "https://image.tmdb.org/t/p/original" +
                       comment.author_details.avatar_path
                     }
                   >
