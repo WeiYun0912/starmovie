@@ -46,14 +46,18 @@ const Comments = ({ id, movieComments, getMovieComments }) => {
   const classes = useStyles();
   useEffect(() => {
     getMovieComments(id);
-  }, [getMovieComments]);
+  }, [id, getMovieComments]);
 
   return (
     <>
       {!movieComments?.id
         ? "Loading..."
         : movieComments?.results?.map((comment) => (
-            <Card className={classes.root} style={{ textAlign: "center" }}>
+            <Card
+              className={classes.root}
+              style={{ textAlign: "center" }}
+              key={comment.author}
+            >
               <CardHeader
                 avatar={
                   <Avatar

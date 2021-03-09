@@ -13,7 +13,6 @@ const useStyles = makeStyles({
 });
 
 const Rate = ({ voteAverage, voteCount }) => {
-  console.log(voteAverage);
   const classes = useStyles();
   return (
     <Box

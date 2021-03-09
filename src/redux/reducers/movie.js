@@ -2,6 +2,7 @@ import {
   GET_MOVIE,
   GET_MOVIE_COMMENTS,
   GET_MOVIE_DETAIL,
+  GET_MOVIE_CASTS,
 } from "../actions/types";
 const initState = {
   movielist: [],
@@ -27,6 +28,12 @@ const movie = (state = initState, action) => {
       return {
         ...state,
         movieComments: payload,
+        loading: false,
+      };
+    case GET_MOVIE_CASTS:
+      return {
+        ...state,
+        movieCasts: payload,
         loading: false,
       };
     default:

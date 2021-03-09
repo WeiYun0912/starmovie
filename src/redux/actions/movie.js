@@ -2,6 +2,7 @@ import {
   GET_MOVIE,
   GET_MOVIE_DETAIL,
   GET_MOVIE_COMMENTS,
+  GET_MOVIE_CASTS,
   ERROR_MOVIE,
 } from "./types";
 import axios from "axios";
@@ -26,7 +27,7 @@ export const getMoives = (page) => async (dispatch) => {
 export const getMovieDetail = (id) => async (dispatch) => {
   try {
     const req = await axios.get(
-      `movie/${id}?api_key=a7a877f8755c80969895d0d4749349af&language=en-US`
+      `movie/${id}?api_key=${API_KEY}&language=en-US`
     );
     dispatch({
       type: GET_MOVIE_DETAIL,
@@ -43,10 +44,27 @@ export const getMovieDetail = (id) => async (dispatch) => {
 export const getMovieComments = (id) => async (dispatch) => {
   try {
     const req = await axios.get(
-      `movie/${id}/reviews?api_key=a7a877f8755c80969895d0d4749349af&language=en-US&page=1`
+      `movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
     );
     dispatch({
       type: GET_MOVIE_COMMENTS,
+      payload: req.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: ERROR_MOVIE,
+      payload: console.log(e),
+    });
+  }
+};
+
+export const getMovieCasts = (id) => async (dispatch) => {
+  try {
+    const req = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+    );
+    dispatch({
+      type: GET_MOVIE_CASTS,
       payload: req.data,
     });
   } catch (e) {

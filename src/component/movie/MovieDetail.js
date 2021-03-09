@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
 import { connect } from "react-redux";
 import { getMovieDetail } from "../../redux/actions/movie";
@@ -12,6 +12,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import Comments from "./Comments";
 import Rate from "./Rate";
 import MoiveMain from "./MovieMain";
+import Cast from "./Cast";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     width: "100%",
@@ -55,7 +56,7 @@ const MovieDetail = ({
           <div
             className={classes.wrapper}
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${movie?.movieDetail?.backdrop_path})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie?.movieDetail?.backdrop_path})`,
             }}
           >
             <Box
@@ -107,6 +108,7 @@ const MovieDetail = ({
           </div>
         </>
       )}
+
       <Box
         width="80%"
         margin="0 auto"
@@ -118,6 +120,16 @@ const MovieDetail = ({
           status={movie?.movieDetail?.status}
           budget={movie?.movieDetail?.budget}
         />
+      </Box>
+      <Box
+        width="80%"
+        margin="0 auto"
+        boxShadow="0px 0px 24px 2px rgba(94,94,94,1);"
+        overflow="auto hidden"
+        whiteSpace="nowrap"
+        padding="10px 0"
+      >
+        <Cast id={id} />
       </Box>
       <Box width="80%" margin="0 auto">
         <Box
