@@ -20,12 +20,12 @@ function App() {
       <Router>
         <HeaderBar />
         <Switch>
-          <Redirect from="/" exact to="/starmovie" />
-          <Route path={"/starmovie"} exact component={Banner} />
+          {/* <Redirect from="/" exact to="/starmovie" /> */}
+          <Route path={"/"} exact component={Banner} />
           <Route path={"/detail/:id"} component={MovieDetail} />
         </Switch>
         <Container>
-          <Route path={"/starmovie"} exact component={MovieList} />
+          <Route path={"/"} exact component={MovieList} />
         </Container>
       </Router>
     </Provider>

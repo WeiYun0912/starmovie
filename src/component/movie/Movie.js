@@ -52,8 +52,8 @@ const Movie = ({ movie, getMoives, page }) => {
                     src={"https://image.tmdb.org/t/p/w400" + movie.poster_path}
                     height="500px"
                     width="350px"
-                    // effect="blur"
-                    placeholderSrc="https://via.placeholder.com/500/fafafa/000000?text=Loading"
+                    effect="blur"
+                    // placeholderSrc="https://via.placeholder.com/500/fafafa/000000?text=Loading"
                   />
 
                   <CardContent>
